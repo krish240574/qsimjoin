@@ -11,6 +11,7 @@ c:1+til neg[wsz]+count a
 \ts rm:avg {avg a[x+t]}each c
 
 / Sliding variance - Welford's algo. - needs cleanup
+w:10 / configurable
 av:cv:var a[til w]
 cm:avg a[til w]
 start:1
