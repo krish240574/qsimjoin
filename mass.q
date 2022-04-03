@@ -1,6 +1,6 @@
 a:"f"${("i"$2 xexp x)?1000000f}10
 b:"f"$10?1000000f
-w:10
+w:10 
 t:til w
 c:til (neg[w]+1+count a)
 
