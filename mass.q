@@ -3,14 +3,15 @@
 wsz:10
 t:til wsz
 c:1+til neg[wsz]+count a
+
+/ Sliding dot product
 \ts {a[x+t]$b}each c
+
+/ Sliding mean
 \ts rm:avg {avg a[x+t]}each c
 
-q)start:0
-q)av:cv:var a[start + til w]
-q)cm:avg a[start + til w]
-q)start:1
-q)\ts {k:(a[start+w-1]-a[start-1]);pm:cm;pv:cv;cm::pm+k%w;cv::pv+k*(k-cv-pv)%w;av::av,cv;start::start+1}each c
-
-
-
+/ Sliding variance - Welford's algo. - needs cleanup
+av:cv:var a[til w]
+cm:avg a[til w]
+start:1
+\ts {k:(a[start+w-1]-a[start-1]);pm:cm;pv:cv;cm::pm+k%w;cv::pv+k*(k-cv-pv)%w;av::av,cv;start::start+1}each c
