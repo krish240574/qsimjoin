@@ -8,8 +8,12 @@ mass:{[w;bi]
  qt:{[bi;t;x]a[x+t]$bi}[bi;t;] each c;
  smb:avg bi;svb:var bi;
  D::D,sqrt 2*w*( 1- (qt - w*smb*smasva[;1])%w*sqrt svb*smasva[;0]);}
- 
- D:()
- t:til w:10;
- {mass[10;b[x+t]]}each til neg[w]+1+count b
+/ the following is code for the STAMP algorithm
+/ q)h:((til count b)+\:(til w))
+/ q){mass[10;x]}each b k
+
+/ kk:where each (min each dd)='dd
+/ (b h),'a flip kk+\:/:til w / matrix profile - shortest d
+istance subsequence pairs in a and b
+
 
