@@ -17,4 +17,9 @@ nak:na@\:ca+\:t
 c0:sqrt nsmasva[;;0];c1:nsmasva[;;1];
 v0:{(c0 x)*/:c0 x}each til count c0
 v1:{(c1 x)*/:c1 x}each til count c1
-\ts D:sqrt 2*w*(1-nsdp-w*v1)%w*v0 / has a bug - getting negative values inside D
+\ts D:sqrt 2*w*(1-nsdp-w*v1)%w*v0 
+/ Set 0n values to very high distances, so they don't figure in the MP
+\ts D:(@/)''[D;where each '0n='D;:;"f"$2 xexp 32] 
+/ Column-wise sort - need to speed this up. 
+\ts SD:flip each (asc)@\:''flip each D
+
