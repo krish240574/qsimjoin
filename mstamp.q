@@ -18,7 +18,7 @@ v1:{(c1 x)*/:c1 x}each til count c1
 / Set 0n values to very high distances, so they don't figure in the MP
 \ts D:(@/)''[D;where each '0n='D;:;"f"$2 xexp 32] 
 / Column-wise sort - need to speed this up. 
-\ts SD:flip each (asc)@\:''flip each D
+\ts SD:flip each (asc)@\:''flip each D / might need to check this, maybe it is a simple flip asc flip (,/)D
 g:kk+\:\:t
 \ts (na@\:ca+\:t),''{na[x]@g x}each til count na / final MP shape is (d,(n+m-1),2*m)
 
