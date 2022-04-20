@@ -1,13 +1,10 @@
 / Multidimensional stamp code - Matrix Profile VI: Meaningful Multidimensional
 Motif Discovery - doi:10.1109/icdm.2017.66 
-
 a:"f"${("i"$2 xexp x)?1000000f}12;
 w:50;
 t:til w;
 ca:til neg[w]+1+count a;
 .Q.gc[];
-
-/ needs to be fixed - getting negative values inside Distance profile !
 na:(4,count a)#a
 
 nak:na@\:ca+\:t
@@ -22,4 +19,7 @@ v1:{(c1 x)*/:c1 x}each til count c1
 \ts D:(@/)''[D;where each '0n='D;:;"f"$2 xexp 32] 
 / Column-wise sort - need to speed this up. 
 \ts SD:flip each (asc)@\:''flip each D
+g:kk+\:\:t
+\ts (na@\:ca+\:t),''{na[x]@g x}each til count na / final MP shape is (d,(n+m-1),2*m)
+
 
