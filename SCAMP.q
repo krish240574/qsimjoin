@@ -5,16 +5,20 @@ nak:a@\:ca+\:t;
 / shape - nt, nt, (count a) div 4, w
 nnak:(`1`2`3`4)!(4,(count nak 0) div 4)#/:nak
 
-/ c1:hopen`::5042; c2:hopen `::5043; c3:hopen `::5044; c4:hopen `::5045;
-/ sa:`1`2`3`4!(`::5043;`::5042;`::5044;`::5045)
 / distributed sdp - 4 workers
-\ts f:{[sa;x]sa[x]({y[x]$\:/:/:y[x]};x;nnak)}[sa;]each key nnak
+c1:hopen`::5042; c2:hopen `::5043; c3:hopen `::5044; c4:hopen `::5045;
+sa:`1`2`3`4!(`::5043;`::5042;`::5044;`::5045)
+/ need to assemble chunks after distributed sliding dot product
+nsdp:{[sa;x]sa[x]({x$\:/:''x};value nnak)}[sa;]each key nnak
 
-\ts nsdp:{nak[x]$\:/:nak[x]}each til count nak
+/ single process nsdp
+/ \ts nsdp:{nak[x]$\:/:nak[x]}each til count nak
+
 nsmasva:(var;avg)@\:/:/:nak
 c0:sqrt nsmasva[;;0];c1:nsmasva[;;1];
 v0:{(c0 x)*/:c0 x}each til count c0
 v1:{(c1 x)*/:c1 x}each til count c1
+
 / this is 100% faster
 \ts D:{sqrt 2*w*(1-nsdp[x]-w*v1[x])%w*v0[x]}each til count nsdp
 \ts D:(@/)''[D;where each '0n='D;:;"f"$2 xexp 32]
