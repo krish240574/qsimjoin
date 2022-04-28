@@ -8,10 +8,12 @@ nnak:(`1`2`3`4)!(4,(count nak 0) div 4)#/:nak
 / distributed sdp - 4 workers
 c1:hopen`::5042; c2:hopen `::5043; c3:hopen `::5044; c4:hopen `::5045;
 sa:`1`2`3`4!(`::5043;`::5042;`::5044;`::5045)
-/ need to assemble chunks after distributed sliding dot product
+/ need to assemble chunks after distributed sliding dot product - WIP 28/04/2022
 nsdp:{[sa;x]sa[x]({x$\:/:''x};value nnak)}[sa;]each key nnak
 
 / single process nsdp
+/ \ts f:{{(nnak[x])[y]$\:/:/:nnak[x]}[x;]each til count nnak[x]}each key nnak
+/ this might not work - need to test
 / \ts nsdp:{nak[x]$\:/:nak[x]}each til count nak
 
 nsmasva:(var;avg)@\:/:/:nak
