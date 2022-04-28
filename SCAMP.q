@@ -24,7 +24,7 @@ Shorter code - but slower
 / \ts D:sqrt 2*w*(1-(nsdp-w*v1))%w*v0
 / this is 100% faster
 \ts D:{sqrt 2*w*(1-nsdp[x]-w*v1[x])%w*v0[x]}each til count nsdp
-/ replace 0n values with vey large values
+/ replace 0n values with very large values
 \ts D:(@/)''[D;where each '0n='D;:;"f"$2 xexp 32]
 / column-wise sort 
 \ts SD:flip each (asc)@\:''flip each D
