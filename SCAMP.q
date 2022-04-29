@@ -8,12 +8,14 @@ nnak:(`1`2`3`4)!(4,(count nak 0) div 4)#/:nak
 / distributed sdp - 4 workers
 c1:hopen`::5042; c2:hopen `::5043; c3:hopen `::5044; c4:hopen `::5045;
 sa:`1`2`3`4!(`::5043;`::5042;`::5044;`::5045)
-nsdp:{[sa;x]sa[x]({x$\:/:''x};value nnak)}[sa;]each key nnak
+/ nsdp:{[sa;x]sa[x]({x$\:/:''x};value nnak)}[sa;]each key nnak
 / gather chunks and re-assemble
 / ideally, these should be stored at each worker, then taken
 / for re-assembly - will implement that too
 nsdp:{(,'/){(,/)x[y;]}[x;]each til count x}each nsdp
 q)shp {(,'/)(,'/)x}each nsdp
+///// q)k:{[vn](value sa)[c]({[vn;x]vn[x]$\:/:/:vn};vn;til count vn);c::c+1}each v
+
 
 / single process nsdp
 / \ts f:{{(nnak[x])[y]$\:/:/:nnak[x]}[x;]each til count nnak[x]}each key nnak
