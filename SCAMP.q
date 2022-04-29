@@ -13,6 +13,7 @@ nsdp:{[sa;x]sa[x]({x$\:/:''x};value nnak)}[sa;]each key nnak
 / ideally, these should be stored at each worker, then taken
 / for re-assembly - will implement that too
 nsdp:{(,'/){(,/)x[y;]}[x;]each til count x}each nsdp
+q)shp {(,'/)(,'/)x}each nsdp
 
 / single process nsdp
 / \ts f:{{(nnak[x])[y]$\:/:/:nnak[x]}[x;]each til count nnak[x]}each key nnak
