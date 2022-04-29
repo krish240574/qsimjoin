@@ -9,12 +9,21 @@ nnak:(`1`2`3`4)!(4,(count nak 0) div 4)#/:nak
 c1:hopen`::5042; c2:hopen `::5043; c3:hopen `::5044; c4:hopen `::5045;
 sa:`1`2`3`4!(`::5043;`::5042;`::5044;`::5045)
 / nsdp:{[sa;x]sa[x]({x$\:/:''x};value nnak)}[sa;]each key nnak
+
+/ Not tested
+/ final code - distributed SDP
+q)(value sa)[0] ({[vn;l]{[vn;x]vn[x]$\:/:/:vn}[vn;]each l};vn;til count vn)
+c:0
+q)shp {(value sa)[c] ({[vn;l]{[vn;x]vn[x]$\:/:/:vn}[vn;]each l};vn;til count vn)}each til count sa
+///////// Not tested till here from line 13
 / gather chunks and re-assemble
 / ideally, these should be stored at each worker, then taken
 / for re-assembly - will implement that too
 nsdp:{(,'/){(,/)x[y;]}[x;]each til count x}each nsdp
 q)shp {(,'/)(,'/)x}each nsdp
 ///// q)k:{[vn](value sa)[c]({[vn;x]vn[x]$\:/:/:vn};vn;til count vn);c::c+1}each v
+
+
 
 
 / single process nsdp
