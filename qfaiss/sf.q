@@ -1,4 +1,3 @@
-/// \l SplitFile.p
 \l p.q
 np:.p.import`numpy;mm:np`:memmap;
 a:.Q.opt .z.x
