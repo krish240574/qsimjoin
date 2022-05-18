@@ -15,7 +15,12 @@ wk:{[v]
 n:10
 nw:1
 c1:hopen`::5042;
+/ file - file to split
+/ dt - data type to read as
+/ sp - starting point to split from
+/ n - number of chunks
+/ c - chunk size
+/ s - size of data type dt
 ms:{
-	show x*l div n;
 	v:`file`dt`sp`n`c`s!((a`file)0;`float32;x*l div n;10;l div n*n;32);
-	`::5042 (wk;v)} nw
+	`::5042 (wk;v)} each til nw
