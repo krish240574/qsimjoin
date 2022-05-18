@@ -4,6 +4,7 @@ a:.Q.opt .z.x
 l:((mm[(a`file)0;`mode pykw "r"]`:shape)`)0
 wk:{[v]
 	t:{
+			\l p.q;
 			np:.p.import`numpy;mm:np`:memmap;
 			.p.set[`c;x`c];
 			k:(x[`sp]+y*x[`c]*x[`s] div 8);
