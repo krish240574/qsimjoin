@@ -5,5 +5,5 @@ c:1?(shp f0)0
 ct:f0 c
 t:(shp f0)0
 ed:sum each 'sqr ct-/:\:f0
-where each (max ed)=ed
+c:c,where each (max ed)=ed
 
