@@ -8,7 +8,6 @@ a:.Q.opt .z.x;
 l:((mm[(a`file)0;`mode pykw "r"]`:shape)`)0;
 wk:{[v]
   t:{
-			show x;
       s2i:{c:count t:raze ("i"$x)-48;"i"$sum (reverse 10 xexp til c)*t};
       np:.p.import`numpy;mm:np`:memmap;rs:np`:reshape;
       .p.set[`c;x`c];
