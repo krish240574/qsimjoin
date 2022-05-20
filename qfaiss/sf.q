@@ -28,12 +28,12 @@ ms:{
 	s:32;c:l div n;
 	sp:x*c;
 	d:s2i a`dim;
-  v:`file`dt`sp`c`d!((a`file)0;`float32;sp;c;d);
-  neg[c1] (wk;v); neg[c1][];c1"";
+	v:`file`dt`sp`c`d!((a`file)0;`float32;sp;c;d);
+	neg[c1] (wk;v); neg[c1][];c1"";
 	sp:(x+1)*c;
-  v:`file`dt`sp`c`d!((a`file)0;`float32;sp;c;d);
-  neg[c2] (wk;v);neg[c2][];c2"";
-  cs:1?(l%n)%d+1;
+	v:`file`dt`sp`c`d!((a`file)0;`float32;sp;c;d);
+	neg[c2] (wk;v);neg[c2][];c2"";
+	cs:1?(l%n)%d+1;
 	nc:4;
 	`::5042 (kmpp;cs;4)}nw
 
