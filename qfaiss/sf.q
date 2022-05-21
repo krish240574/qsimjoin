@@ -8,6 +8,7 @@ a:.Q.opt .z.x;
 l:((mm[(a`file)0;`mode pykw "r"]`:shape)`)0;
 wk:{[v]
   t:{
+			show x;
       s2i:{c:count t:raze ("i"$x)-48;"i"$sum (reverse 10 xexp til c)*t};
       np:.p.import`numpy;mm:np`:memmap;rs:np`:reshape;
       .p.set[`c;x`c];
@@ -32,6 +33,7 @@ ms:{
 	v:`file`dt`sp`c`d!((a`file)0;`float32;sp;c;d);
 	neg[c2] (wk;v);neg[c2][];c2"";
 	cs:1?(l div n*n) div d+1;
-	nc:4;
-	`::5042 (kmpp;cs 0;4)}nw
+	nc:10;
+	neg[c1] (kmpp;cs 0;nc);neg[c1][];c1"";
+	neg[c2] (kmpp;cs 0;nc);neg[c2][];c2""}nw
 
