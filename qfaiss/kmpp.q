@@ -9,7 +9,7 @@ kmpp:{[c;n]
 		$[1=cc;
 			[ ed:raze sum each sqr ct-/:f0; ed:ed where not 0=raze ed; c:c,where (max ed)=ed; show count ed ];
 			[ ed:sum each 'sqr ct-/:\:f0; ed:ed@'where each not 0=ed; 
-				c:raze c,nc where (max p)=p:d%sum d:ed@/:'nc:raze where each (min each ed)=ed;show count ed;
+				c:raze c,nc where first enlist (max p)=p:d%sum d:ed@/:'nc:raze where each (min each ed)=ed;show count ed;
 				/d:ed@/:'nc;
 				/show d;
 				/p:d%sum d;
