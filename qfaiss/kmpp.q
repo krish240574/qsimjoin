@@ -3,19 +3,14 @@ kmpp:{[c;n]
 	f0:"f"$get `:f0;
 	sqr:{x xexp 2};
 	nc:c;
-	while[n-:1;
+	do[n;
 		cc:count c;
 		ct:raze f0 nc;
-		/ct:f0 c;
-
 		$[1=cc;
-			[ ed:raze sum each sqr ct-/:f0; c:c,where (max ed)=ed;show nc:last c ];
-			[ ed:ed,'raze sum each sqr ct-/:f0;
-				c:c,nc:where (max k)=k:min each ed;
-			]			
-			];
-			show c;
-			]
+					 [ ed:raze sum each sqr ct-/:f0; c:c,where (max ed)=ed;show nc:last c];
+					 [ ed:ed,'raze sum each sqr ct-/:f0; $[cc<n;c:c,nc:where (max k)=k:min each ed;];]
+		 ];
+		];
+		show km:(min each ed)=ed;
+		show c;
 		}
-
-
