@@ -11,6 +11,11 @@ kmpp:{[c;n]
 					 [ ed:ed,'raze sum each sqr ct-/:f0; $[cc<n;c:c,nc:where (max k)=k:min each ed;];]
 		 ];
 		];
-		show km:(min each ed)=ed;
-		show c;
+		km:(min each ed)=ed;
+		:(km;c);
 		}
+
+q)gg:((kmc 1)raze key g)!value g:group where each kmc 0
+q)fgg:(key gg)!avg each f0 value gg
+q)sum each  sqr (f0 @ raze key fgg)-value fgg
+
