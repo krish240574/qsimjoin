@@ -9,7 +9,6 @@ kmpp:{[c;n]
 		/km:(min each ed)=ed;
 		gg:(c raze key g)!value g:group where each (min each ed)=ed;
 		fgg:avg each f0 value gg;
-		ruk;
 		d:sum over (f0 @ raze key gg)-fgg;
 		:d }
 
