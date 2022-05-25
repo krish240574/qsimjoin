@@ -1,16 +1,28 @@
 kmpp:{[c;n]
-	shp:{[a]$[99h=(type a);`99h;];$[0<=type a;(count a),shp a 0;""]};
-	edf:{sum each (y-/:x) xexp 2};
-	f0:"f"$get `:f0;
-	ed:raze edf[f0;raze f0 c];
-	c:c,where (max ed)=ed;show nc:last c;
-	nc:last c;
-	do[n-1; ct:raze f0 nc;ed:ed,'raze edf[f0;ct];$[(count c)<n;c:c,nc:where (max k)=k:min each ed;];];
-		/km:(min each ed)=ed;
-		gg:(c raze key g)!value g:group where each (min each ed)=ed;
-		fgg:avg each f0 value gg;
+	i:{[f0;c;n]
+		edf:{sum each (y-/:x) xexp 2};
+		/f0:"f"$get `:f0; 
+		ed:raze edf[f0;raze f0 c];
+		c:c,where (max ed)=ed;nc:last c;
+		do[n-1; ct:raze f0 nc;ed:ed,'raze edf[f0;ct];$[(count c)<n;c:c,nc:where (max k)=k:min each ed;];];
+		:(((min each ed)=ed);c)};
+	t:{[d]
+		edf::{sum each (y-/:x) xexp 2};
+		ed:{[f0;x]edf[f0;raze x]}[f0;]each fgg;
+		tmp:flip ed;
+		kmc::((min each tmp)=tmp;fgg);
+		gg:((kmc 1) raze key g)!value g:group where each kmc 0;
+		fgg::avg each f0 value gg;
+		d:sum over (key gg)-fgg;
+		show d;
+		:d };
+		f0::get `:f0;
+		kmc::i[f0;c;n];
+		gg:((kmc 1) raze key g)!value g:group where each kmc 0;
+		fgg::avg each f0 value gg;
 		d:sum over (f0 @ raze key gg)-fgg;
-		:d }
+		show d;
+		t/[d]}
 
 d:kmpp[27352;5];
 
