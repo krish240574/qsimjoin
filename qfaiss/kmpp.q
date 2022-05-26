@@ -1,26 +1,22 @@
 kmpp:{[c;n]
-	.k.f0:get `:f0;
+	.k.edf:{sum each (y-/:x) xexp 2};
+	.k.fd:{
+		gg:((x 1) raze key g)!value g:group where each x 0; 
+    .k.fgg:avg each .k.f0 value gg;
+		:gg};
 	i:{[f0;c;n]
-		edf:{sum each (y-/:x) xexp 2};
-		ed:raze edf[f0;raze f0 c];
+		ed:raze .k.edf[f0;raze f0 c];
 		c:c,where (max ed)=ed;nc:last c;
-		do[n-1; ct:raze f0 nc;ed:ed,'raze edf[f0;ct];$[(count c)<n;c:c,nc:where (max k)=k:min each ed;];];
-		:(((min each ed)=ed);c)};
+		do[n-1; ct:raze f0 nc;ed:ed,'raze .k.edf[f0;ct];$[(count c)<n;c:c,nc:where (max k)=k:min each ed;];];
+		:((min each ed)=ed;c)};
 	t:{[d]
-		edf::{sum each (y-/:x) xexp 2};
-		ed:{[f0;x]edf[f0;raze x]}[f0;]each fgg;
+		ed:{[f0;x].k.edf[f0;raze x]}[.k.f0;]each .k.fgg;
 		tmp:flip ed;
-		kmc::((min each tmp)=tmp;fgg);
-		gg:((kmc 1) raze key g)!value g:group where each kmc 0;
-		fgg::avg each f0 value gg;
-		d:sum over (key gg)-fgg;
+		kmc:((min each tmp)=tmp;.k.fgg); gg:.k.fd[kmc]; d:sum over (key gg)-.k.fgg;
 		show d;
 		:d };
-		f0::get `:f0;
-		kmc::i[.k.f0;c;n];
-		gg:((kmc 1) raze key g)!value g:group where each kmc 0;
-		fgg::avg each f0 value gg;
-		d:sum over (f0 @ raze key gg)-fgg;
+		.k.f0:get `:f0;
+		kmc:i[.k.f0;c;n]; gg:.k.fd[kmc]; d:sum over (.k.f0 @ raze key gg)-.k.fgg;
 		show d;
 		t/[d]}
 
