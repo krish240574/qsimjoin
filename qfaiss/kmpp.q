@@ -1,7 +1,7 @@
 kmpp:{[c;n]
 	.k.edf:{sum each (y-/:x) xexp 2};
 	.k.fd:{
-		gg:((x 1) raze key g)!value g:group where each x 0; 
+		gg:((x 1) raze key g)!value g:group first each where each x 0; 
     .k.fgg:avg each .k.f0 value gg;
 		:gg};
 	i:{[c;n]
@@ -20,6 +20,6 @@ kmpp:{[c;n]
 		show d;
 		t/[d]}
 
-d:kmpp[27352;5];
+d:kmpp[27352;50];
 
 
