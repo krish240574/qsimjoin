@@ -10,7 +10,7 @@ kmpp:{[c;n]
 		do[n-1; ct:raze .k.f0 nc;ed:ed,'raze .k.edf[.k.f0;ct];$[(count c)<n;c:c,nc:where (max k)=k:min each ed;];];
 		:((min each ed)=ed;c)};
 	t:{[d]
-		ed:{[f0;x].k.edf[f0;raze x]}[.k.f0;]each .k.fgg;
+		ed:{[f0;x].k.edf[f0;raze x]}[.k.f0;]peach .k.fgg;
 		tmp:flip ed;
 		kmc:((min each tmp)=tmp;.k.fgg); gg:.k.fd[kmc]; d:sum over (key gg)-.k.fgg;
 		show d;
