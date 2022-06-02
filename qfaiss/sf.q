@@ -10,23 +10,18 @@ n:s2i a`nc;
 nw:0;
 c1:hopen`::5042;
 c2:hopen`::5043;
-/ sending port numbers now, later will have IP address too
 hl:`c1`c2;(5042;5043);
 f:();
 mcb:{f::f,x} 
-/ 2 hosts for now
-p:(0;distinct (asc f)[;0] div 2)
 \t 2000
 ms:{
-	s:32;c:l div n*n;
-	sp:x*c;
-	d:s2i a`dim;
+	s:32;c:l div n*n; sp:x*c; d:s2i a`dim;
 	v:`file`dt`sp`c`d`hl!((a`file)0;`float32;sp;c;d;hl);
 	neg[c1] (wk;v); neg[c1][];c1"";
 	sp:(x+1)*c;
 	v:`file`dt`sp`c`d`hl!((a`file)0;`float32;sp;c;d;hl);
 	neg[c2] (wk;v);neg[c2][];c2"";
-	.z.ts:{$[2=count f;[p:(0;distinct (asc f)[;0] div 2);neg[c1](shf;ph);neg[c2](shf;ph);neg[c1][];neg[c2][];c1"";c2"";];]}}nw
+	.z.ts:{$[400=count f;[.m.p::(0;(distinct (asc f)[;0]) div 2);neg[c1](shf;ph);neg[c2](shf;ph);neg[c1][];neg[c2][];c1"";c2"";];]}}nw
 	/cs:1?(l div n*n) div d+1;
 	/nc:10;
 	/neg[c1] (kmpp;cs 0;nc);neg[c1][];c1"";

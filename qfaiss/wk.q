@@ -10,5 +10,5 @@ wk:{[v]
       .k.f:(rs[.k.f;.p.qeval"tuple((-1,d+1))"])`; 
       (`$":f",string y-1) 1: (.k.f)[;1+til x`d];};
   t[v;1];
-  neg[.z.w] (`mcb;(asc .k.f) 100?count .k.f)}
+  neg[.z.w] (`mcb;(asc .k.f) 200?count .k.f)}
 
