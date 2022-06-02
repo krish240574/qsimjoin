@@ -1,39 +1,34 @@
 \l p.q
-\l kmpp.q
-shp:{[a]$[99h=(type a);`99h;];$[0<=type a;(count a),shp a 0;""]};
+/\l kmpp.q
+\l wk.q
+np:.p.import`numpy
+mm:np`:memmap
 s2i:{c:count t:raze ("i"$x)-48;"i"$sum (reverse 10 xexp til c)*t}
-
-np:.p.import`numpy;mm:np`:memmap;
 a:.Q.opt .z.x;
 l:((mm[(a`file)0;`mode pykw "r"]`:shape)`)0;
-wk:{[v]
-  t:{
-			show x;
-      s2i:{c:count t:raze ("i"$x)-48;"i"$sum (reverse 10 xexp til c)*t};
-      np:.p.import`numpy;mm:np`:memmap;rs:np`:reshape;
-      .p.set[`c;x`c];
-      .p.set[`d;x`d];
-      f:mm[x`file; `dtype pykw x`dt; `mode pykw "r"; `shape pykw .p.pyeval"tuple((1,c))";`offset pykw x`sp];
-      f:rs[f;.p.qeval"tuple((-1,d+1))"];
-      (`$":f",string y-1) set (f`)[;1+til x`d];};
-	t[v;1];
-	neg[.z.w] (`mcb;"Done")}
 n:s2i a`nc;
 nw:0;
 c1:hopen`::5042;
 c2:hopen`::5043;
-mcb:{show x} 
+/ sending port numbers now, later will have IP address too
+hl:`c1`c2;(5042;5043);
+f:();
+mcb:{f::f,x} 
+/ 2 hosts for now
+p:(0;distinct (asc f)[;0] div 2)
+\t 2000
 ms:{
 	s:32;c:l div n*n;
 	sp:x*c;
 	d:s2i a`dim;
-	v:`file`dt`sp`c`d!((a`file)0;`float32;sp;c;d);
+	v:`file`dt`sp`c`d`hl!((a`file)0;`float32;sp;c;d;hl);
 	neg[c1] (wk;v); neg[c1][];c1"";
 	sp:(x+1)*c;
-	v:`file`dt`sp`c`d!((a`file)0;`float32;sp;c;d);
+	v:`file`dt`sp`c`d`hl!((a`file)0;`float32;sp;c;d;hl);
 	neg[c2] (wk;v);neg[c2][];c2"";
-	cs:1?(l div n*n) div d+1;
-	nc:10;
-	neg[c1] (kmpp;cs 0;nc);neg[c1][];c1"";
-	neg[c2] (kmpp;cs 0;nc);neg[c2][];c2""}nw
+	.z.ts:{$[2=count f;[p:(0;distinct (asc f)[;0] div 2);neg[c1](shf;ph);neg[c2](shf;ph);neg[c1][];neg[c2][];c1"";c2"";];]}}nw
+	/cs:1?(l div n*n) div d+1;
+	/nc:10;
+	/neg[c1] (kmpp;cs 0;nc);neg[c1][];c1"";
+	/neg[c2] (kmpp;cs 0;nc);neg[c2][];c2""}nw
 
