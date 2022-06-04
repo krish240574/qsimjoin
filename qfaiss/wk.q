@@ -15,10 +15,10 @@ wk:{[v]
 / Shuffle for distributed sort - could implement Berkeley paper here
 shf:{[p] 
 	td:{.k.rd:x;k.lc,:y};
-	lsrt:{
+	lsrt:{[p]
 		$[.k.id=0;
 			asc (.k.f where .k.f[;0]<=p 1+.k.id),.k.rd;
-		$[.k.id=(-1+x`nw);
+		$[.k.id=(-1+.k.nw);
 			asc (.k.f where .k.f[;0]>=p .k.id),.k.rd;
 				[asc (.k.f where (.k.f[;0]>=p .k.id)&(.k.f[;0]<=p 1+.k.id)),.k.rd]]];
 		}
