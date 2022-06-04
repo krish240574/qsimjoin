@@ -1,13 +1,9 @@
 \l p.q
 /\l kmpp.q
 \l wk.q
-np:.p.import`numpy
-mm:np`:memmap
+\l utl.q
 s2i:{c:count t:raze ("i"$x)-48;"i"$sum (reverse 10 xexp til c)*t}
-a:.Q.opt .z.x
-l:((mm[(a`file)0;`mode pykw "r"]`:shape)`)0
-n:s2i a`nc
-dt:a`dt
+a:ap[.Q.opt .z.x]
 nw:4
 c1:hopen`::5042
 c2:hopen`::5043
@@ -18,7 +14,12 @@ f:()
 mcb:{f::f,x} 
 \t 2000
 ms:{
-	s:32;c:l div n*n; d:s2i a`dim;
+	l:a`l;
+	show l;	
+	ruk;
+	n:a`n;
+	dt:a`dt;
+	s:32;c:l div n; d:a`dim;
 	sf:{
 		sp:y*x`c;
 		v:`file`dt`sp`c`d`hl`nw!(x`file;x`dt;sp;x`c;x`d;x`hl;x`nw);
