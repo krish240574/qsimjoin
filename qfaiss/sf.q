@@ -3,7 +3,6 @@
 \l wk.q
 \l utl.q
 s2i:{c:count t:raze ("i"$x)-48;"i"$sum (reverse 10 xexp til c)*t}
-a:ap[.Q.opt .z.x]
 nw:4
 c1:hopen`::5042
 c2:hopen`::5043
@@ -14,20 +13,19 @@ f:()
 mcb:{f::f,x} 
 \t 2000
 ms:{
-	l:a`l;
-	show l;	
-	ruk;
-	n:a`n;
-	dt:a`dt;
-	s:32;c:l div n; d:a`dim;
+	a:ap[.Q.opt .z.x]
+	l:a`l; show l;	n:a`n; dt:a`dt; s:32;c:l div n; d:a`dim;
 	sf:{
 		sp:y*x`c;
-		v:`file`dt`sp`c`d`hl`nw!(x`file;x`dt;sp;x`c;x`d;x`hl;x`nw);
+		v:`file`dt`sp`c`d`hl`nw`id!(x`file;x`dt;sp;x`c;x`d;x`hl;x`nw;y);
 		neg[t:(value v`hl)y] (wk;v); neg[t][];t"";};
 	v:`file`c`d`dt`hl`nw!((a`file)0;c;d;dt;hl;nw);
 	sf[v;]each til nw;
 	/ **
-	.z.ts:{$[400=count f;[.m.p::(0;(last distinct (asc f)[;0]) div 2);neg[c1](shf;.m.p);neg[c2](shf;.m.p);neg[c1][];neg[c2][];c1"";c2"";];]}}nw
+	shf:{
+		.k.f
+		}	
+	.z.ts:{$[(nw*nw)=count f;[.m.p:((til nw)*(last distinct (asc f)[;0]) div nw);neg[c1](shf;.m.p);neg[c2](shf;.m.p);neg[c1][];neg[c2][];c1"";c2"";];]}}nw
 	/cs:1?(l div n*n) div d+1;
 	/nc:10;
 	/neg[c1] (kmpp;cs 0;nc);neg[c1][];c1"";
