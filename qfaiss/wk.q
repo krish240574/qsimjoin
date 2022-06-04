@@ -6,10 +6,9 @@ wk:{[v]
       np:.p.import`numpy;mm:np`:memmap;rs:np`:reshape;
       .p.set[`c;x`c];
       .p.set[`d;x`d];
-      .k.f:mm[x`file; `dtype pykw x`dt; `mode pykw "r"; `shape pykw .p.pyeval"tuple((1,c))";`offset pykw x`sp];
+      .k.f:mm[x`file; `dtype pykw (x`dt)0; `mode pykw "r"; `shape pykw .p.pyeval"tuple((1,c))";`offset pykw x`sp];
       .k.f:((rs[.k.f;.p.qeval"tuple((-1,d+1))"])`)[;1+til x`d]; 
-			
       (`$":f",string y-1) 1: (.k.f);};
   t[v;1];
-  neg[.z.w] (`mcb;(asc .k.f) 200?count .k.f)}
+  neg[.z.w] (`mcb;(asc .k.f) (til v`nw)*(count .k.f) div v`nw)}
 
