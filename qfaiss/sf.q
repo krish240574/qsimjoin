@@ -13,7 +13,7 @@ f:()
 mcb:{f::f,x} 
 \t 2000
 ms:{
-	a:ap[.Q.opt .z.x]
+	a:ap[.Q.opt .z.x];
 	l:a`l; show l;	n:a`n; dt:a`dt; s:32;c:l div n; d:a`dim;
 	sf:{
 		sp:y*x`c;
@@ -22,10 +22,7 @@ ms:{
 	v:`file`c`d`dt`hl`nw!((a`file)0;c;d;dt;hl;nw);
 	sf[v;]each til nw;
 	/ **
-	shf:{
-		.k.f
-		}	
-	.z.ts:{$[(nw*nw)=count f;[.m.p:((til nw)*(last distinct (asc f)[;0]) div nw);neg[c1](shf;.m.p);neg[c2](shf;.m.p);neg[c1][];neg[c2][];c1"";c2"";];]}}nw
+	.z.ts:{$[(nw*nw)=count f;[.m.p:((til nw)*(last distinct (asc f)[;0]) div nw);neg[c1](shf;.m.p);neg[c2](shf;.m.p);neg[c1][];neg[c2][];c1"";c2"";neg[c3](shf;.m.p);neg[c4](shf;.m.p);neg[c3][];neg[c4][];c3"";c4"";];]}}nw
 	/cs:1?(l div n*n) div d+1;
 	/nc:10;
 	/neg[c1] (kmpp;cs 0;nc);neg[c1][];c1"";
