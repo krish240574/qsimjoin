@@ -10,10 +10,11 @@ wk:{[v]
       .k.f:((rs[.k.f;.p.qeval"tuple((-1,d+1))"])`)[;1+til x`d]; 
       (`$":f",string 0) 1: (.k.f);};
 	.k.nw:v`nw; .k.id:v`id; 
-	.k.lc:(); .k.rd:();
+	.k.lc:(); .k.rd:();.k.hl:();
   t[v];
   neg[.z.w] (`mcb;(.k.f:asc .k.f) (til v`nw)*(count .k.f) div v`nw)}
 wcb:{show x}
+lcb:{.k.hl:.k.hl,x};
 / Shuffle for distributed sort - could implement Berkeley paper here
 shf:{[p] 
 	.k.p:p;
@@ -30,11 +31,28 @@ shf:{[p]
 			asc (.k.f where .k.f[;0]>=p .k.id),.k.rd;
 				[asc (.k.f where (.k.f[;0]>=p .k.id)&(.k.f[;0]<=p 1+.k.id)),.k.rd]]];
 		};
-	c1:hopen`::5042;
-	c2:hopen`::5043;
-	c3:hopen`::5044;
-	c4:hopen`::5045;
-  .k.hl:`c1`c2`c3`c4!(c1;c2;c3;c4);
 	.k.l:{.k.f where .k.f[;0] within (.k.p[x];.k.p[x+1])}peach til -1+count .k.p;
-	{neg[t:(value .k.hl)y](.k.td;(x y);1);neg[t];t""}[.k.l;]peach where not .k.id=(til .k.nw)};
+	lc:hopen`::6666;
+	neg[c](`lk;where not .k.id=til .k.nw);neg[lc][];lc"":
+	{neg[t:.k.hl y](.k.td;(x y);1);neg[t];t""}[.k.l;]peach where not .k.id=(til .k.nw)};
 /	.z.ts:{$[(-1+.k.nw)=count .k.lc;[lsrt[.k.p];.z.ts:()];]};}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
