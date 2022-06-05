@@ -17,7 +17,7 @@ ms:{
 	l:a`l; show l;	n:a`n; dt:a`dt; s:32;c:l div n; d:a`dim;
 	sf:{
 		sp:y*x`c;
-		v:`file`dt`sp`c`d`hl`nw`id!(x`file;x`dt;sp;x`c;x`d;x`hl;x`nw;y);
+		v:`file`dt`sp`c`d`hl`nw!(x`file;x`dt;sp;x`c;x`d;x`hl;x`nw);
 		neg[t:(value v`hl)y] (wk;v); neg[t][];t"";};
 	v:`file`c`d`dt`hl`nw!((a`file)0;c;d;dt;hl;nw);
 	sf[v;]each til nw;
