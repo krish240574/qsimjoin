@@ -26,38 +26,18 @@ shf:{[p]
 	/neg[.z.w](`wcb;100)};
 	lsrt:{[p]
 		show "lsrt";
-		$[.k.id=0;
-			asc (.k.f where .k.f[;0]<=p 1+.k.id),.k.rd;
-		$[.k.id=(-1+.k.nw);
-			asc (.k.f where .k.f[;0]>=p .k.id),.k.rd;
-				[asc (.k.f where (.k.f[;0]>=p .k.id)&(.k.f[;0]<=p 1+.k.id)),.k.rd]]];
+		.k.fd:asc .k.rd,.k.f where .k.f[;0] within (.k.p[.k.id];.k.p[.k.id+1]);
+		/$[.k.id=0;
+		/	asc (.k.f where .k.f[;0]<=p 1+.k.id),.k.rd;
+		/$[.k.id=(-1+.k.nw);
+		/	asc (.k.f where .k.f[;0]>=p .k.id),.k.rd;
+		/[asc (.k.f where (.k.f[;0]>=p .k.id)&(.k.f[;0]<=p 1+.k.id)),.k.rd]]];
 		};
 	.k.l:{.k.f where .k.f[;0] within (.k.p[x];.k.p[x+1])}peach til -1+count .k.p;
 	lc:hopen`::6666;
 	.k.hl:lc (`lk;wn:where not .k.id=til .k.nw);
 	show wn;
 	.k.c:0;
-	{i:(.k.hl .k.c). 0 0;p:(.k.hl .k.c). 0 1;show i;show p;t:hopen(raze ":",(string i),":",p);t (.k.td;(.k.l x);1);.k.c+:1;}each wn;
+	{i:(.k.hl .k.c). 0 0;p:(.k.hl .k.c). 0 1;t:hopen(raze ":",(string i),":",p);t (.k.td;(.k.l x);1);.k.c+:1;}each wn;
 	show "Calling lsrt";
 	lsrt[.k.p]}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
