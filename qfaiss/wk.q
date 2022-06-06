@@ -22,10 +22,10 @@ shf:{[p]
 	INF:-1+2 xexp 32;
 	.k.p[0]:neg[INF];	
 	.k.p,:INF;
-	/.k.p[-1+count .k.p]:INF;	
-	.k.td:{show y;.k.rd,:x;.k.lc,:y;neg[.z.w](`wcb;100)};
+	.k.td:{show y;.k.rd,:x;.k.lc,:y;};
+	/neg[.z.w](`wcb;100)};
 	lsrt:{[p]
-		show p;
+		show "lsrt";
 		$[.k.id=0;
 			asc (.k.f where .k.f[;0]<=p 1+.k.id),.k.rd;
 		$[.k.id=(-1+.k.nw);
@@ -33,12 +33,13 @@ shf:{[p]
 				[asc (.k.f where (.k.f[;0]>=p .k.id)&(.k.f[;0]<=p 1+.k.id)),.k.rd]]];
 		};
 	.k.l:{.k.f where .k.f[;0] within (.k.p[x];.k.p[x+1])}peach til -1+count .k.p;
-	show "here";
 	lc:hopen`::6666;
 	.k.hl:lc (`lk;wn:where not .k.id=til .k.nw);
-	show .k.hl;
-	{i:(.k.hl y). 0 0;p:(.k.hl y). 0 1;t:hopen(raze ":",(string i),":",p);neg[t](.k.td;(x y);1);neg[t][];t""}[.k.l;]peach wn};
-/	.z.ts:{$[(-1+.k.nw)=count .k.lc;[lsrt[.k.p];.z.ts:()];]};}
+	show wn;
+	.k.c:0;
+	{i:(.k.hl .k.c). 0 0;p:(.k.hl .k.c). 0 1;show i;show p;t:hopen(raze ":",(string i),":",p);t (.k.td;(.k.l x);1);.k.c+:1;}each wn;
+	show "Calling lsrt";
+	lsrt[.k.p]}
 
 
 
