@@ -1,4 +1,4 @@
-2i:{c:count t:raze ("i"$x)-48;"i"$sum (reverse 10 xexp til c)*t}
+s2i:{c:count t:raze ("i"$x)-48;"i"$sum (reverse 10 xexp til c)*t}
 np:.p.import`numpy
 mm:np`:memmap
 ap:{

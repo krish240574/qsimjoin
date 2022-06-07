@@ -1,5 +1,4 @@
 / worker function to split files and return samples
-\t 2000
 wk:{[v]
   t:{
       show x;
@@ -18,18 +17,10 @@ lcb:{.k.hl:.k.hl,x};
 / Shuffle for distributed sort - could implement Berkeley paper here
 shf:{[p]
   .k.p:p; INF:-1+2 xexp 32; .k.p[0]:neg[INF]; .k.p,:INF;
-  .k.td:{show y;.k.rd,:x;.k.lc,:y;};
-  lsrt:{[p] show "lsrt"; .k.fd:asc .k.rd,.k.f where .k.f[;0] within (.k.p[.k.id];.k.p[.k.id+1]); };
+  .k.td:{.k.rd,:x;.k.lc,:y;};
+  lsrt:{show "lsrt"; .k.fd:asc .k.rd,.k.f where .k.f[;0] within (.k.p[.k.id];.k.p[.k.id+1]);};
   .k.l:{.k.f where .k.f[;0] within (.k.p[x];.k.p[x+1])}peach til -1+count .k.p;
-  lc:hopen .k.lkh;
-  .k.hl:lc (`lk;wn:where not .k.id=til .k.nw);
-  show wn;
-  .k.c:0;
-  {
-    /i:(.k.hl .k.c). 0 0;p:(.k.hl .k.c). 0 1;
-    t:hopen .k.hl .k.c;
-    /(raze ":",(string i),":",p);
-    t (.k.td;(.k.l x);1);.k.c+:1;}each wn;
-  show "Calling lsrt";
-  lsrt[.k.p]}
+  lc:hopen .k.lkh; .k.hl:lc (`lk;wn:where not .k.id=til .k.nw);
+  .k.c:0; { t:hopen .k.hl .k.c; t (.k.td;(.k.l x);1);.k.c+:1;}each wn;
+  lsrt[];}
 
