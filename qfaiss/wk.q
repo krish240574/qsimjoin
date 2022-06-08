@@ -23,17 +23,3 @@ shf:{[p]
   lc:hopen .k.lkh; .k.hl:lc (`lk;wn:where not .k.id=til .k.nw);
   {t:hopen .k.hl x; t (.k.td;(.k.l x);1);}peach til count wn; 
 		lsrt[];}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
