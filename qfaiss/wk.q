@@ -9,7 +9,9 @@ wk:{[v]
       .k.f:mm[x`file; `dtype pykw (x`dt)0; `mode pykw "r"; `shape pykw .p.pyeval"tuple((1,c))";`offset pykw x`sp];
       .k.f:((rs[.k.f;.p.qeval"tuple((-1,d+1))"])`)[;1+til x`d];
       (`$":f",string 0) 1: (.k.f);};
-  .k.nw:v`nw; .k.lc:(); .k.rd:();.k.hl:();
+  .k.nw:v`nw; .k.lc:(); .k.rd:();.k.hl:();.k.gc:{.k.cc:.k.f x;:.k.cc};
+	.k.edf:{sum each (y-/:x) xexp 2};
+	.k.ff:{.k.f[where (max k)=k:.k.edf[.k.f;x]]};
   t[v];
   neg[.z.w] (`mcb;(.k.f:asc .k.f) (til v`nw)*(count .k.f) div v`nw)}
 
