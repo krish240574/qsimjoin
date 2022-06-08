@@ -16,3 +16,4 @@ ms:{
   /nc:10;
   /neg[c1] (kmpp;cs 0;nc);neg[c1][];c1"";
   /neg[c2] (kmpp;cs 0;nc);neg[c2][];c2""}nw
+	/c:1?l

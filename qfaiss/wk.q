@@ -19,7 +19,7 @@ shf:{[p]
   .k.p:p; INF:-1+2 xexp 32; .k.p[0]:neg[INF]; .k.p,:INF;
   .k.td:{.k.rd,:x;.k.lc,:y;};
   lsrt:{show "lsrt"; .k.fd:asc .k.rd,.k.f where .k.f[;0] within (.k.p[.k.id];.k.p[.k.id+1]);};
-  .k.l:{.k.f where .k.f[;0] within (.k.p[x];.k.p[x+1])}peach til -1+count .k.p;
-  .k.hl:(hopen .k.lkh) (`lk;wn:where not .k.id=til .k.nw);
+  .k.l:({.k.f where .k.f[;0] within (.k.p[x];.k.p[x+1])}peach til -1+count .k.p)[wn:where not .k.id=til .k.nw];
+  .k.hl:(hopen .k.lkh) (`lk;wn);
   {t:hopen .k.hl x; t (.k.td;(.k.l x);1);}peach til count wn; 
 		lsrt[];}
