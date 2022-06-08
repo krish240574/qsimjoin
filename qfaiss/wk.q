@@ -5,6 +5,7 @@ wk:{[v]
       .k.s2i:{c:count t:raze ("i"$x)-48;"i"$sum (reverse 10 xexp til c)*t};
       np:.p.import`numpy;mm:np`:memmap;rs:np`:reshape;
       .p.set[`c;x`c]; .p.set[`d;x`d];
+			show x`sp;
       .k.f:mm[x`file; `dtype pykw (x`dt)0; `mode pykw "r"; `shape pykw .p.pyeval"tuple((1,c))";`offset pykw x`sp];
       .k.f:((rs[.k.f;.p.qeval"tuple((-1,d+1))"])`)[;1+til x`d];
       (`$":f",string 0) 1: (.k.f);};
