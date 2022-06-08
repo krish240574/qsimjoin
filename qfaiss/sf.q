@@ -17,9 +17,9 @@ ms:{
   /nc:10;
   /neg[c1] (kmpp;cs 0;nc);neg[c1][];c1"";
   /neg[c2] (kmpp;cs 0;nc);neg[c2][];c2""}nw
-	/ This is because we have numWorkers<(args[nc])
 	/TMP:n*c;
-	/ic:1?TMP;
-	/p[-1+first where ic<p:c*til n];
-	
-	
+	ic:1?l;
+	hn:(where q[-1+first where ic<q]=q:c*til n)0;
+	m:ic mod c;
+	(hopen .k.lkh)(`lku;m);
+
