@@ -9,9 +9,15 @@ wk:{[v]
       .k.f:mm[x`file; `dtype pykw (x`dt)0; `mode pykw "r"; `shape pykw .p.pyeval"tuple((1,c))";`offset pykw x`sp ];
       .k.f:((rs[.k.f;.p.qeval"tuple((-1,d+1))"])`)[;1+til x`d];
       (`$":f",string 0) 1: (.k.f);};
-  .k.nw:v`nw; .k.lc:(); .k.rd:();.k.hl:();.k.gc:{.k.cc:.k.f x;:.k.cc};
+  .k.nw:v`nw; .k.lc:(); .k.rd:();.k.hl:();.k.gc:{.k.cc:.k.f x;:.k.cc};.k.ed:();
 	.k.edf:{$[1=count x 0;sum (y-x) xexp 2;sum each (y-/:x) xexp 2]};
-	.k.ff:{show "inside ff";show .k.id;.k.w:(where (max k)=k:.k.edf[.k.f;x])0;(.k.w;.k.edf[x;.k.f[.k.w]];.k.f[.k.w])};
+	.k.ff:{
+		show "inside ff";
+		show count x;
+		.k.ed,:.k.edf[.k.f;x];
+		$[128=count x;[show"count=1";.k.w:(where(max min each .k.ed)=.k.ed)0;(.k.w;.k.ed[.k.w];.k.f[.k.w])];
+		[show"count>1";w:first each where each (m:min each .k.ed)=.k.ed;
+		max max each m[wrd:where each {x=y}[w;]each rd:asc raze distinct w]]]};
   t[v];
   neg[.z.w] (`mcb;(.k.f:asc .k.f) (til v`nw)*(count .k.f) div v`nw)}
 
