@@ -10,8 +10,8 @@ wk:{[v]
       .k.f:((rs[.k.f;.p.qeval"tuple((-1,d+1))"])`)[;1+til x`d];
       (`$":f",string 0) 1: (.k.f);};
   .k.nw:v`nw; .k.lc:(); .k.rd:();.k.hl:();.k.gc:{.k.cc:.k.f x;:.k.cc};
-	.k.edf:{sum each (y-/:x) xexp 2};
-	.k.ff:{show "inside ff";show .k.id;.k.f[.k.w:where (max k)=k:.k.edf[.k.f;x]]};
+	.k.edf:{$[1=count x 0;sum (y-x) xexp 2;sum each (y-/:x) xexp 2]};
+	.k.ff:{show "inside ff";show .k.id;.k.w:(where (max k)=k:.k.edf[.k.f;x])0;(.k.w;.k.edf[x;.k.f[.k.w]];.k.f[.k.w])};
   t[v];
   neg[.z.w] (`mcb;(.k.f:asc .k.f) (til v`nw)*(count .k.f) div v`nw)}
 
