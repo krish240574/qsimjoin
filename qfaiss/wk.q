@@ -13,11 +13,13 @@ wk:{[v]
 	.k.edf:{
 		show"edf";
 		show count x 0;
-		$[1=count y 0;[$[1=count x 0;sum (y-x) xexp 2;]show"# x 0=1";sum (y-/:x) xexp 2]; sum each 'v*v:y-\:/:x]};
+		$[1=count y 0;[$[1=count x 0;sum (y-x) xexp 2;]show"# x 0=1";sum each (y-/:x) xexp 2]; sum each 'v*v:y-\:/:x]};
 	.k.ff:{
 		show "inside ff";
 		show count x;
 		.k.ed,:.k.edf[.k.f;x];
+		show ".k.ed=";
+		show .k.ed;
 		$[1=count x 0;[show"count=1";.k.w:(where(max min each .k.ed)=.k.ed)0;(.k.w;.k.ed[.k.w];.k.f[.k.w])];
 		[show"count>1";w:first each where each (m:min each .k.ed)=.k.ed;
 		max max each m[wrd:where each {x=y}[w;]each rd:asc raze distinct w]]]};
