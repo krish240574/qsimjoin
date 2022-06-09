@@ -21,7 +21,7 @@ ms:{
 	.k.fc:flip .k.fc,'.k.fp[(where (m:max .k.fp[;1])=.k.fp[;1])0;2];
 	show .k.fc;
 	show"calling with 2 centers";
-	..k.fp:{x (`.k.ff;.k.fc)}peach .k.cl;
+	.k.fp:{x (`.k.ff;.k.fc)}peach .k.cl;
 	.k.fc:flip .k.fc,'.k.fp[(where (m:max .k.fp[;1])=.k.fp[;1])0;2];
 	show .k.fc;ruk;}.k.nw
   /cs:1?(l div n*n) div d+1;
