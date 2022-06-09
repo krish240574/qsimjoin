@@ -14,13 +14,16 @@ ms:{
   v:`file`c`d`dt`nw!((a`file)0;c;d;dt;.k.nw); sf[v;]each til .k.nw;
   /.z.ts:{$[(.k.nw*.k.nw)=count f;[show "Calling shf";.m.p:((til .k.nw)*(last distinct (asc f)[;0]) div .k.nw);{neg[x](shf;.m.p);neg[x][];x"";}each .k.cl;];]}
 	ic:(1?l div 4*4*d+1)0;
-	/hn:(where q[-1+first where ic<q]=q:c*til n)0;
 	.k.lkh:hopen raze over ":",(a`li),":",a`lp;
 	ih:.k.lkh (`lku;ic div c);
 	.k.fc:(hopen ih) (`.k.gc;ic mod c);
-	/pl:.k.cl (`lk;0);
 	.k.fp:{x (`.k.ff;.k.fc)}peach .k.cl;
-	show .k.fp;}.k.nw
+	.k.fc:flip .k.fc,'.k.fp[(where (m:max .k.fp[;1])=.k.fp[;1])0;2];
+	show .k.fc;
+	show"calling with 2 centers";
+	..k.fp:{x (`.k.ff;.k.fc)}peach .k.cl;
+	.k.fc:flip .k.fc,'.k.fp[(where (m:max .k.fp[;1])=.k.fp[;1])0;2];
+	show .k.fc;ruk;}.k.nw
   /cs:1?(l div n*n) div d+1;
   /nc:10;
   /neg[c1] (kmpp;cs 0;nc);neg[c1][];c1"";
