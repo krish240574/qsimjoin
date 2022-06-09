@@ -17,7 +17,7 @@ wk:{[v]
 	.k.ff:{
 		show "inside ff";
 		show count x;
-		.k.ed,:.k.edf[.k.f;x];
+		$[0=count .k.ed;.k.ed:.k.edf[.k.f;x];.k.ed,:'.k.edf[.k.f;x]];
 		show ".k.ed=";
 		show .k.ed;
 		$[1=count x 0;[show"count=1";.k.w:(where(max min each .k.ed)=.k.ed)0;(.k.w;.k.ed[.k.w];.k.f[.k.w])];
