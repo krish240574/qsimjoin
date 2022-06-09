@@ -10,11 +10,10 @@ a:ap[.Q.opt .z.x];
 ms:{
   l:a`l; n:a`n; dt:a`dt; s:32;c:l div n; d:a`dim;
 	show l;
-	/ can write a util function here to bcast
   sf:{sp:y*x`c; v:`file`dt`sp`c`d`nw!(x`file;x`dt;sp;x`c;x`d;x`nw);t:hopen .k.hl y; neg[t] (wk;v); neg[t][];t"";};
   v:`file`c`d`dt`nw!((a`file)0;c;d;dt;.k.nw); sf[v;]each til .k.nw;
-  .z.ts:{$[(.k.nw*.k.nw)=count f;[show "Calling shf";.m.p:((til .k.nw)*(last distinct (asc f)[;0]) div .k.nw);{neg[x](shf;.m.p);neg[x][];x"";}each .k.cl;];]}
-	ic:(1?l div 4*d+1)0;
+  /.z.ts:{$[(.k.nw*.k.nw)=count f;[show "Calling shf";.m.p:((til .k.nw)*(last distinct (asc f)[;0]) div .k.nw);{neg[x](shf;.m.p);neg[x][];x"";}each .k.cl;];]}
+	ic:(1?l div 4*4*d+1)0;
 	/hn:(where q[-1+first where ic<q]=q:c*til n)0;
 	.k.lkh:hopen raze over ":",(a`li),":",a`lp;
 	ih:.k.lkh (`lku;ic div c);

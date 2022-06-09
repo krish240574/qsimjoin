@@ -4,14 +4,14 @@ wk:{[v]
       show x;
       .k.s2i:{c:count t:raze ("i"$x)-48;"i"$sum (reverse 10 xexp til c)*t};
       np:.p.import`numpy;mm:np`:memmap;rs:np`:reshape;
-      .p.set[`c;x`c]; .p.set[`d;x`d];
+      .p.set[`c;(x`c) div 4]; .p.set[`d;x`d];
 			show x`sp;
-      .k.f:mm[x`file; `dtype pykw (x`dt)0; `mode pykw "r"; `shape pykw .p.pyeval"tuple((1,c))";`offset pykw x`sp];
+      .k.f:mm[x`file; `dtype pykw (x`dt)0; `mode pykw "r"; `shape pykw .p.pyeval"tuple((1,c))";`offset pykw x`sp ];
       .k.f:((rs[.k.f;.p.qeval"tuple((-1,d+1))"])`)[;1+til x`d];
       (`$":f",string 0) 1: (.k.f);};
   .k.nw:v`nw; .k.lc:(); .k.rd:();.k.hl:();.k.gc:{.k.cc:.k.f x;:.k.cc};
 	.k.edf:{sum each (y-/:x) xexp 2};
-	.k.ff:{.k.f[where (max k)=k:.k.edf[.k.f;x]]};
+	.k.ff:{show "inside ff";show .k.id;.k.f[.k.w:where (max k)=k:.k.edf[.k.f;x]]};
   t[v];
   neg[.z.w] (`mcb;(.k.f:asc .k.f) (til v`nw)*(count .k.f) div v`nw)}
 

@@ -9,4 +9,4 @@ ap:{
   d:s2i x`dim;
   li:raze over string x`li;
   lp:raze over string x`lp;
-  `file`l`n`dt`dim`li`lp!(x`file;l div 4;n;dt;d;li;lp)}
+  `file`l`n`dt`dim`li`lp!(x`file;l;n;dt;d;li;lp)}
