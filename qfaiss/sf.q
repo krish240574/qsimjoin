@@ -16,14 +16,16 @@ ms:{
 	ic:(1?l div 4*4*d+1)0;
 	.k.lkh:hopen raze over ":",(a`li),":",a`lp;
 	ih:.k.lkh (`lku;ic div c);
-	.k.fc:(hopen ih) (`.k.gc;ic mod c);
+	.k.fc:(1,128)#(hopen ih) (`.k.gc;ic mod c);
 	.k.fp:{x (`.k.ff;.k.fc)}peach .k.cl;
-	.k.fc:flip .k.fc,'.k.fp[(where (m:max .k.fp[;1])=.k.fp[;1])0;2];
+	/.k.fc:flip .k.fc,'.k.fp[(where (m:max .k.fp[;1])=.k.fp[;1])0;2];
+	.k.fc:.k.fc,(1,128)#raze .k.fp[(where (m:max .k.fp[;1])=.k.fp[;1])0;2];
 	show .k.fp;
 	show"calling with 2 centers";
 	show .k.fc;
 	.k.fp:{x (`.k.ff;.k.fc)}peach .k.cl;
-	.k.fc:flip .k.fc,'.k.fp[(where (m:max .k.fp[;1])=.k.fp[;1])0;2];
+	/.k.fc:flip .k.fc,'.k.fp[(where (m:max .k.fp[;1])=.k.fp[;1])0;2];
+	.k.fc:.k.fc,(1,128)#raze .k.fp[(where (m:max .k.fp[;1])=.k.fp[;1])0;2];
 	show .k.fp;}.k.nw
   /cs:1?(l div n*n) div d+1;
   /nc:10;
