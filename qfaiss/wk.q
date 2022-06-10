@@ -12,10 +12,12 @@ wk:{[v]
 	.k.edf:{$[1=count y 0;[$[1=count x 0;sum (y-x) xexp 2;]show"# x 0=1";sum each (y-/:x) xexp 2];sum each 'v*v:y-\:/:x]};
 	.k.ff:{
 		$[0=count .k.ed;.k.ed:.k.edf[.k.f;x];.k.ed:.k.ed,'.k.edf[.k.f;last x]];
-		show count .k.ed 0;
 		$[1=count x 0;[.k.w:(where(max min each .k.ed)=.k.ed)0;(.k.w;.k.ed[.k.w];.k.f[.k.w])];
 		[w:first each where each (m:min each .k.ed)=.k.ed;
-		mm:m[wrd:where each {x=y}[w;]each rd:asc raze distinct w];mm@'wmm:where each (max each mm)=mm;(.k.wmm;mm@'wmm;.k.f wmm;]]};
+		mm:m[wrd:where each {x=y}[w;]each rd:asc raze distinct w];
+		tmp:raze mm@'wmm:where each (max each mm)=mm;
+		tmp:(wmm where(max tmp)=tmp)0;
+		(tmp;(max mm@'wmm)0;.k.f tmp)]]};
   t[v];
   neg[.z.w] (`mcb;(.k.f:asc .k.f) (til v`nw)*(count .k.f) div v`nw)}
 lcb:{.k.hl:.k.hl,x};

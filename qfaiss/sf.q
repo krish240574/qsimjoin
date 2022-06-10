@@ -19,36 +19,14 @@ ms:{
 	.k.fc:(hopen ih) (`.k.gc;ic mod c);
 	.k.fp:{x (`.k.ff;.k.fc)}peach .k.cl;
 	.k.fc:flip .k.fc,'.k.fp[(where (m:max .k.fp[;1])=.k.fp[;1])0;2];
-	show .k.fc;
+	show .k.fp;
 	show"calling with 2 centers";
 	show .k.fc;
 	.k.fp:{x (`.k.ff;.k.fc)}peach .k.cl;
 	.k.fc:flip .k.fc,'.k.fp[(where (m:max .k.fp[;1])=.k.fp[;1])0;2];
-	show .k.fc;ruk;}.k.nw
+	show .k.fp;}.k.nw
   /cs:1?(l div n*n) div d+1;
   /nc:10;
   /neg[c1] (kmpp;cs 0;nc);neg[c1][];c1"";
   /neg[c2] (kmpp;cs 0;nc);neg[c2][];c2""}nw
 	/TMP:n*c;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
