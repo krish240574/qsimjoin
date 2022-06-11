@@ -21,3 +21,6 @@ ms:{
 	$[1=count .k.cc 0;.k.cc:flip .k.cc,'flip t;.k.cc:.k.cc,(1,128)#t];];
 	show .k.cc;
 	.k.kmt:{x (`.k.km;.k.cc)}peach .k.cl;}.k.nw 
+
+/ q){(sum each .k.kmt[x;0;1+til 128])%sum .k.kmt[x;0;0]}each til count .k.cc
+
