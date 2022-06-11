@@ -9,7 +9,7 @@ wk:{[v]
       .k.f:((rs[.k.f;.p.qeval"tuple((-1,d+1))"])`)[;1+til x`d];
       (`$":f",string 0) 1: (.k.f);};
 
-  .k.nw:v`nw; .k.lc:(); .k.rd:();.k.hl:();.k.gc:{.k.cc:.k.f x;:.k.cc};.k.ed:();.k.d:v`d;
+	.k.nw:v`nw; .k.lc:(); .k.rd:();.k.hl:();.k.gc:{.k.cc:.k.f x;:.k.cc};.k.ed:();.k.d:v`d;
 	
 	.k.edf:{$[1=count y 0;[$[1=count x 0;sum (y-x) xexp 2;]show"# x 0=1";sum each (y-/:x) xexp 2];sum each 'v*v:y-\:/:x]};
 
