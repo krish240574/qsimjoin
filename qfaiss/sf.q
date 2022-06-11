@@ -7,15 +7,16 @@ mcb:{f::f,x}
 a:ap[.Q.opt .z.x];
 {[i;p]lc:hopen raze over ":",i,":",p; .k.hl:lc(`ghl;0);.k.nw:count .k.hl; show .k.hl;.k.cl:hopen each .k.hl}[a`li;a`lp];
 ms:{
-  l:a`l; n:a`n; dt:a`dt; s:32;c:l div n; d:a`dim;
+	l:a`l; n:a`n; dt:a`dt; s:32;c:l div n; d:a`dim;
 	show l;
-  sf:{sp:y*x`c; v:`file`dt`sp`c`d`nw!(x`file;x`dt;sp;x`c;x`d;x`nw);t:hopen .k.hl y; neg[t] (wk;v); neg[t][];t"";};
-  v:`file`c`d`dt`nw!((a`file)0;c;d;dt;.k.nw); sf[v;]each til .k.nw;
-  /.z.ts:{$[(.k.nw*.k.nw)=count f;[show "Calling shf";.m.p:((til .k.nw)*(last distinct (asc f)[;0]) div .k.nw);{neg[x](shf;.m.p);neg[x][];x"";}each .k.cl;];]}
+	sf:{sp:y*x`c; v:`file`dt`sp`c`d`nw!(x`file;x`dt;sp;x`c;x`d;x`nw);t:hopen .k.hl y; neg[t] (wk;v); neg[t][];t"";};
+	v:`file`c`d`dt`nw!((a`file)0;c;d;dt;.k.nw); sf[v;]each til .k.nw;
+	/.z.ts:{$[(.k.nw*.k.nw)=count f;[show "Calling shf";.m.p:((til .k.nw)*(last distinct (asc f)[;0]) div .k.nw);{neg[x](shf;.m.p);neg[x][];x"";}each .k.cl;];]}
 	ic:(1?l div 4*4*d+1)0;
 	.k.lkh:hopen raze over ":",(a`li),":",a`lp;
 	ih:.k.lkh (`lku;ic div c);
 	.k.cc:(hopen ih) (`.k.gc;ic mod c);
 	nct:a`nct;
-do[nct-1;.k.lp:{x (`.k.ff;.k.cc)}peach .k.cl;t:.k.lp[(where (m:max .k.lp[;1])=.k.lp[;1])0;2];
-	$[1=count .k.cc 0;.k.cc:flip .k.cc,'flip t;.k.cc:.k.cc,(1,128)#t];]}.k.nw 
+	do[nct-1;.k.lp:{x (`.k.ff;.k.cc)}peach .k.cl;t:.k.lp[(where (m:max .k.lp[;1])=.k.lp[;1])0;2];
+	$[1=count .k.cc 0;.k.cc:flip .k.cc,'flip t;.k.cc:.k.cc,(1,128)#t];];
+	.k.kmt:{x (`.k.km;.k.cc)}peach .k.cl;}.k.nw 

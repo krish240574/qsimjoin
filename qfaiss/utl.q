@@ -8,6 +8,7 @@ ap:{
   dt:x`dt;
   d:s2i x`dim;
 	nct:s2i x`nct;
+	show nct;
   li:raze over string x`li;
   lp:raze over string x`lp;
   `file`l`n`dt`dim`nct`li`lp!(x`file;l;n;dt;d;nct;li;lp)}
