@@ -8,21 +8,18 @@ wk:{[v]
       .k.f:mm[x`file; `dtype pykw (x`dt)0; `mode pykw "r"; `shape pykw .p.pyeval"tuple((1,c))";`offset pykw x`sp ];
       .k.f:((rs[.k.f;.p.qeval"tuple((-1,d+1))"])`)[;1+til x`d];
       (`$":f",string 0) 1: (.k.f);};
-  .k.nw:v`nw; .k.lc:(); .k.rd:();.k.hl:();.k.gc:{.k.cc:.k.f x;:.k.cc};.k.ed:();
+
+  .k.nw:v`nw; .k.lc:(); .k.rd:();.k.hl:();.k.gc:{.k.cc:.k.f x;:.k.cc};.k.ed:();.k.d:v`d;
+
 	.k.edf:{$[1=count y 0;[$[1=count x 0;sum (y-x) xexp 2;]show"# x 0=1";sum each (y-/:x) xexp 2];sum each 'v*v:y-\:/:x]};
+
 	.k.ff:{
-		show "inside ff";
 		show x;
 		$[0=count .k.ed;.k.ed:.k.edf[.k.f;x];.k.ed:.k.ed,'.k.edf[.k.f;last x]];
-		$[1=count x 0;[.k.w:(where(max min each .k.ed)=.k.ed)0;(.k.w;.k.ed[.k.w];(1,128)#raze .k.f[.k.w])];
-		[w:first each where each (m:min each .k.ed)=.k.ed;
-		mm:m[wrd:where each {x=y}[w;]each rd:asc raze distinct w];
-		tmp:raze mm@'wmm:where each (max each mm)=mm;
-		tmp:(wmm where(max tmp)=tmp)0;
-		(tmp;(max mm@'wmm)0;(.k.f tmp)0)]]};
+		$[1=count x 0;[.k.w:(where(max min each .k.ed)=.k.ed)0;(.k.w;.k.ed[.k.w];(1,.k.d)#raze .k.f[.k.w])];
+		[w:first each where each (m:min each .k.ed)=.k.ed; mm:m[where each {x=y}[w;]each asc raze distinct w]; tmp:raze mm@'wmm:where each (max each mm)=mm; tmp:(wmm where(max tmp)=tmp)0;(tmp;(max mm@'wmm)0;(.k.f tmp)0)]]};
   t[v];
   neg[.z.w] (`mcb;(.k.f:asc .k.f) (til v`nw)*(count .k.f) div v`nw)}
-lcb:{.k.hl:.k.hl,x};
 
 / Shuffle for distributed sort - could implement Berkeley paper here
 shf:{[p]
