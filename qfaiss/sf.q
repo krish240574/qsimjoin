@@ -17,10 +17,5 @@ ms:{
 	.k.lkh:hopen raze over ":",(a`li),":",a`lp;
 	ih:.k.lkh (`lku;ic div c);
 	.k.cc:(hopen ih) (`.k.gc;ic mod c);
-	/ testing
-	nct:10;
+	nct:a`nct;
 	do[nct-1;.k.lp:{x (`.k.ff;.k.cc)}peach .k.cl;t:.k.lp[(where (m:max .k.lp[;1])=.k.lp[;1])0;2];$[1=count .k.cc 0;.k.cc:flip .k.cc,'flip t;.k.cc:.k.cc,(1,128)#t];]}.k.nw
-  /nc:10;
-  /neg[c1] (kmpp;cs 0;nc);neg[c1][];c1"";
-  /neg[c2] (kmpp;cs 0;nc);neg[c2][];c2""}nw
-	/TMP:n*c;
