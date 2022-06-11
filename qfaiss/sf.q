@@ -18,17 +18,8 @@ ms:{
 	ih:.k.lkh (`lku;ic div c);
 	.k.cc:(hopen ih) (`.k.gc;ic mod c);
 	/ testing
-	nct:4;
-	do[nct-1;.k.lp:{x (`.k.ff;.k.cc)}peach .k.cl;t:.k.lp[(where (m:max .k.lp[;1])=.k.lp[;1])0;2];$[1=count .k.cc 0;.k.cc:flip .k.cc,'flip t;.k.cc:.k.cc,(1,128)#t];ruk]}.k.nw
-	/.k.fc:flip .k.fc,'.k.fp[(where (m:max .k.fp[;1])=.k.fp[;1])0;2];
-	/	show .k.fp;
-	/show"calling with 2 centers";
-	/show .k.fc;
-	/.k.fp:{x (`.k.ff;.k.fc)}peach .k.cl;
-	/.k.fc:flip .k.fc,'.k.fp[(where (m:max .k.fp[;1])=.k.fp[;1])0;2];
-	/.k.fc:.k.fc,(1,d)#raze .k.fp[(where (m:max .k.fp[;1])=.k.fp[;1])0;2];
-	/show .k.fp;}.k.nw
-  /cs:1?(l div n*n) div d+1;
+	nct:10;
+	do[nct-1;.k.lp:{x (`.k.ff;.k.cc)}peach .k.cl;t:.k.lp[(where (m:max .k.lp[;1])=.k.lp[;1])0;2];$[1=count .k.cc 0;.k.cc:flip .k.cc,'flip t;.k.cc:.k.cc,(1,128)#t];]}.k.nw
   /nc:10;
   /neg[c1] (kmpp;cs 0;nc);neg[c1][];c1"";
   /neg[c2] (kmpp;cs 0;nc);neg[c2][];c2""}nw
