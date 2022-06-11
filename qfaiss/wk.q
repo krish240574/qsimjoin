@@ -21,7 +21,7 @@ wk:{[v]
 		tmp:raze mm@'wmm:where each (max each mm)=mm; tmp:(wmm where(max tmp)=tmp)0;(tmp;(max mm@'wmm)0;(.k.f tmp)0)]]};
 	t[v];
 	neg[.z.w] (`mcb;(.k.f:asc .k.f) (til v`nw)*(count .k.f) div v`nw);
-	.k.km:{show "KMEANS";.k.ed:();.Q.gc[];.k.ed:.k.edf[.k.f;x];(count each agw;sum each {.k.f x}each agw:gw asc key gw:group where each (min each .k.ed)=.k.ed)};}
+	.k.km:{show "KMEANS";.k.ed:();.Q.gc[];.k.ed:.k.edf[.k.f;x];(count each agw;sum each {.k.f x}each agw:gw asc key gw:group first each where each (min each .k.ed)=.k.ed)};}
 
 / Shuffle for distributed sort - could implement Berkeley paper here
 shf:{[p]

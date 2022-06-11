@@ -19,4 +19,5 @@ ms:{
 	nct:a`nct;
 	do[nct-1;.k.lp:{x (`.k.ff;.k.cc)}peach .k.cl;t:.k.lp[(where (m:max .k.lp[;1])=.k.lp[;1])0;2];
 	$[1=count .k.cc 0;.k.cc:flip .k.cc,'flip t;.k.cc:.k.cc,(1,128)#t];];
+	show .k.cc;
 	.k.kmt:{x (`.k.km;.k.cc)}peach .k.cl;}.k.nw 
