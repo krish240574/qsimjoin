@@ -15,7 +15,37 @@ show c;
 c1:(|/)(key h) in l;c2:(|/)(key h) in l-1;
 $[c1;h[l]:h[l],(enlist c)!(enlist ());h[l]:(enlist c)!(enlist ())]
 $[c2;h[l-1]:h[l-1],(enlist c)!(enlist ());h[l-1]:(enlist c)!(enlist ())]
-op:f0 til each -1+count each key each (h[l];h[l-1])
+op:f0 k:til each -1+count each key each (h[l];h[l-1])
 nn:where each (min each s)=s:sum  each '(f0[c]-/:/:op)xexp 2
-nn[where 0= count each nn]:-1
-{(h x):@[h x;c;:;(nn 0;s[0][nn 0])]}each ws:(l;l-1)
+/$[0<count w:where 0=count each nn;nn[w]:-1;]
+/nn:enlist each raze nn
+
+
+q)n::0
+q){(h x):@[h x;c;:;(((iasc each s)n);(asc each s)n)];n::n+1}each (l-1;l)
+
+/n::0
+/{(h x):@[h x;c;:;$[(-1<>nn n)0;(nn n;s[n][nn n]);(enlist ())!(enlist ())]];n::n+1;}each ws:(l-1;l)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
