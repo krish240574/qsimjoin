@@ -1,4 +1,6 @@
 s2i:{c:count t:raze ("i"$x)-48;"i"$sum (reverse 10 xexp til c)*t}
+/ Shape of a multidimensional array
+shp:{[a]$[0<=type a;(count a),shp a 0;""]}
 np:.p.import`numpy
 mm:np`:memmap
 ap:{
