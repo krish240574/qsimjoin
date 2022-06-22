@@ -5,15 +5,14 @@ l:("i"$(neg log(1?1f)*reciprocal log 5)+1)0;m:l;c:0
 h:(til l+1)!((l+1)#(enlist ()))
 r:{(rkh)!h(rkh:reverse key h)}
 .k.gep::{$[x<0;:-1;ep:reverse where (min s)=s:sum each(f0[c]-/:f0 wk:where not c=key h x)xexp 2]};
-.k.ip::{s:sum each (f0[c]-/:f0 wk:where not c=key h x)xexp 2;$[1=count h x;(h x):@[h x;c;,;(enlist c)!enlist ((iasc s);asc $[1<count s;each;] s) ];(h x):@[h x;c;,;(enlist c)!enlist ((iasc s);asc s)]]};
-.k.gs:{ep:.k.gep each reverse $[0<count k:(l+1) _ til m+1;k;-1];.k.ip each reverse (til l),l;};
+.k.ip::{s:sum each (f0[c]-/:f0 wk:where not c=key h x)xexp 2;$[0=count s;:-1;];$[1=count h x;(h x):@[h x;c;,;(enlist c)!enlist ((iasc s);asc $[1<count s;each;] s) ];(h x):@[h x;c;,;(enlist c)!enlist ((iasc s);asc s)]]};
+.k.gs:{ep:.k.gep each reverse $[0<count k:(l+1) _ til m+1;k;-1];show ep;.k.ip each reverse (til l),l;};
 hnsw:{
 	l::("i"$(neg log(1?1f)*reciprocal log 5)+1)0;
-	/$[l>m;m::l;];
-	m::max key h;
-	show l;
+	$[l>m;m::l;];
+	/m::max key h;
 	ruk;
-	{{$[0=count h x;(h x):(enlist c)!(enlist ());]}each reverse til l+1;.k.gs[]}[];
+	{{$[(0=(|/)l=key h)|0=count h x;(h x):(enlist c)!(enlist ());];}each reverse til l+1;.k.gs[]}[];
 	c+::1;}
 n:10
 do[n-1;hnsw[];];
