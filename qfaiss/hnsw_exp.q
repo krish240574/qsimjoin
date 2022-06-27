@@ -6,7 +6,7 @@ h:(til l+1)!((l+1)#(enlist ()))
 
 r:{(rkh)!h(rkh:reverse key h)};.k.nn:();
 
-.k.gep:{$[0<count x;.k.ep:.k.ep,((key h x)where (min s)=s:sum each(f0[c]-/:f0 key h x)xexp 2)[0];]};
+.k.gep:{$[0<count x;.k.ep:.k.ep,((key h x)where (min s)=s:sum each(f0[c]-/:f0 k where not c=k:key h x)xexp 2)[0];];show "inside gep";show s;show .k.ep;};
 
 p1:{
 	/t:(value(h x).k.ep)[0][0]; 
@@ -17,6 +17,7 @@ p1:{
 
 p2:{
 	$[1=count h x; 
+		/ Need to fix that empty list for the first entry here ******************************
 		[show "1=count h x";(h x):@[h x;c;,;(enlist c)!enlist(0;sum (f0[c]-f0[0])xexp 2)]];
     [s:(sum each (f0[c]-/:f0 key h x)xexp 2);i:iasc s;s:asc s;$[3<count s;[s:s til 3;i:i til 3];];$[0=count s;[show "2.s is 0";show s];];
          (h x):@[h x;c;,;(enlist c)!enlist ((key h x)i;s)]
@@ -33,9 +34,11 @@ p2:{
 	}
 	
 .k.gb:{
-	.k.gep each reverse $[0<count k:(l+1) _ til m+1;k;()];
+	k:(l+1) _ til m+1;
+	/.k.gep each reverse $[0<count k:(l+1) _ til m+1;k;()];
 	show "value to gep - ";
 	show k;
+	.k.gep each reverse k;
 	c+::1;
 	.k.ip[];}
 
