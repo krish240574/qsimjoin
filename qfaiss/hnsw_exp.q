@@ -6,12 +6,14 @@ h:(til l+1)!((l+1)#(enlist ()))
 
 r:{(rkh)!h(rkh:reverse key h)};.k.nn:();
 
-.k.gep:{$[0<count x;.k.ep:.k.ep,((key h x)where (min s)=s:sum each(f0[c]-/:f0 k where not c=k:key h x)xexp 2)[0];];show "inside gep";show s;show .k.ep;};
+.k.gep:{$[0<count x;.k.ep:((key h x)where (min s)=s:sum each(f0[c]-/:f0 k where not c=k:key h x)xexp 2)[0];];show "inside gep";show s;show .k.ep;};
+/.k.gep:{$[0<count x;.k.ep:.k.ep,((key h x)where (min s)=s:sum each(f0[c]-/:f0 k where not c=k:key h x)xexp 2)[0];];show "inside gep";show s;show .k.ep;};
 
 p1:{
 	$[0<count .k.ep;ruk1;];
 	/**************** Handle how .k.ep is of length > 1
-	r:$[1<count t:(raze (h x).k.ep)[0][0];(raze (h x)t)[;0];(raze (h x)t)[0]];
+	/ ************** need to enter only in the lth layer *********************8
+	r:$[1<count t:((h x).k.ep)[0][0];(raze (h x)t)[;0];(raze (h x)t)[0]];
 	/t:(value ((h x).k.ep)[0])[0][0];
 	/s:sum each (f0[c]-/:f0 .k.nn:distinct t,raze (value each (h x)t)[;0][;0])xexp 2;
 	s:sum each (f0[c]-/:f0 .k.nn:distinct t,r)xexp 2;
