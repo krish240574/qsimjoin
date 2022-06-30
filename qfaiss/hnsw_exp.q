@@ -1,9 +1,10 @@
 / represent graph using a dictionary
 f0:get `:f0
-l:("i"$(neg log(1?1f)*reciprocal log 5)+1)0;m:l;c:0;.k.ep:();
-
+l:(1+"i"$(neg log(1?1f)*reciprocal log 5))0
+m:l
+c:0
+.k.ep:()
 h:(til l+1)!((l+1)#(enlist ()))
-
 r:{(rkh)!h(rkh:reverse key h)};.k.nn:();
 
 .k.gep:{$[0<count x;.k.ep:((key h x)where (min s)=s:sum each(f0[c]-/:f0 k where not c=k:key h x)xexp 2)[0];];show "inside gep";show s;show .k.ep;};
@@ -30,7 +31,7 @@ p2:{
 				 (h x):@[h x;c;$[(|/)(0N=(h x)c)0;:;,];enlist (((key h x)i);s)];
 					hh::h x;d::h[x][c][;1];k::h[x][c][;0];
 					k::k 0;d::d 0;
-					/ count fl will be > 0 !!!
+					/ count fl will be > 1 !!!
 					fl:first k where d<first each (raze hh[k])[;1]; 
 					/ Check for = 3 here also for fl = null here
 					/$[0N<>fl;[(hh fl):@[raze hh[fl][0][;0];0;:;c];(hh fl):@[raze hh[fl][0][;1];1;:;d[0]];rukafter];];
