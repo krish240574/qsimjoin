@@ -13,6 +13,14 @@ $[0=count h;{(h x):enlist ()}each reverse (l+1) _til m+1;]
 cf1:{$[1=count h x;[show "1=count h x";(h x):@[h x;(key h x)0;,;enlist(c;sum (f0[c]-f0[0])xexp 2)];(h x):@[h x;c;,;enlist((key h x)0;sum (f0[c]-f0[0])xexp 2)];];]}
 cfg:{show "todo"}
 p1:{$[0=count h x;(h x):()!();]}
+ug:{
+		hh:h x;d:h[x][c][;1];k:h[x][c][;0]; k:k 0;d:d 0;
+    / count fl will be > 1 !!!
+    fl:first k where d<first each (raze hh[k])[;1];
+		rukug;
+    / Check for = 3 here also for fl = null here
+    $[0N<>fl;(h x):@[h x;fl;:;enlist((@[raze hh[fl][;0];0;:;fl]);(@[raze hh[fl][;1];0;:;d[0]]))];]}
+		
 
 ip:{$[1=count h x;
 		[show "1=count h x";
@@ -21,14 +29,8 @@ ip:{$[1=count h x;
 		[show "1<count h x";
      s:(sum each (f0[c]-/:f0 key h x)xexp 2);i:iasc s;s:asc s;$[3<count s;[s:s til 3;i:i til 3];];$[0=count s;[show "2.s is 0";show s];];
          (h x):@[h x;c;$[(|/)(0N=(h x)c)0;:;,];enlist (((key h x)i);s)];
-					rukug;
 					/ Update graph here
-          hh::h x;d::h[x][c][;1];k::h[x][c][;0];
-          k::k 0;d::d 0;
-          / count fl will be > 1 !!!
-          fl:first k where d<first each (raze hh[k])[;1];
-          / Check for = 3 here also for fl = null here
-          $[0N<>fl;(hh fl):enlist((@[raze hh[fl][;0];0;:;fl]);(@[raze hh[fl][;1];0;:;d[0]]));];
+					ug[x];
 		]]}
 
 p2:{
