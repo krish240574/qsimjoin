@@ -17,7 +17,6 @@ ug:{
 		hh:h x;d:h[x][c][;1];k:h[x][c][;0]; k:k 0;d:d 0;
     / count fl will be > 1 !!!
     fl:first k where d<first each (raze hh[k])[;1];
-		rukug;
     / Check for = 3 here also for fl = null here
     $[0N<>fl;(h x):@[h x;fl;:;enlist((@[raze hh[fl][;0];0;:;fl]);(@[raze hh[fl][;1];0;:;d[0]]))];]}
 		
@@ -27,8 +26,9 @@ ip:{$[1=count h x;
 			(h x):@[h x;(key h x)0;:;enlist(c;sum (f0[c]-f0[0])xexp 2)];
 			(h x):@[h x;c;:;enlist((key h x)0;sum (f0[c]-f0[0])xexp 2)];]; 
 		[show "1<count h x";
-     s:(sum each (f0[c]-/:f0 key h x)xexp 2);i:iasc s;s:asc s;$[3<count s;[s:s til 3;i:i til 3];];$[0=count s;[show "2.s is 0";show s];];
-         (h x):@[h x;c;$[(|/)(0N=(h x)c)0;:;,];enlist (((key h x)i);s)];
+     s:asc sum each (f0[c]-/:f0 key h x)xexp 2;i:iasc s;$[3<count s;[s:s til 3;i:i til 3];];$[0=count s;[show "2.s is 0";show s];];
+         /(h x):@[h x;c;$[(|/)(0N=(h x)c)0;:;,];enlist (((key h x)i);s)];
+         (h x):@[h x;c;:;enlist (((key h x)i);s)];
 					/ Update graph here
 					ug[x];
 		]]}
@@ -45,5 +45,5 @@ gb:{
   c::c+1;
   }
 
-n:5
+n:50
 do[n-1;gb[];];
