@@ -15,11 +15,16 @@ cfg:{show "todo"}
 / Need to check for entry points here - TODO
 p1:{$[0=count h x;[(h x):()!();];$[1=count h x;.k.ep:key h x;[.k.ep:(raze (h x).k.ep)[0][0]]]]}
 ug:{
-		hh:h x;d:h[x][c][;1];k:h[x][c][;0]; k:k 0;d:d 0;
-    / count fl will be > 1 !!!
-    fl:first k where d<first each (raze hh[k])[;1];
+		/hh:h x;d:h[x][c][;1];k:h[x][c][;0]; k:k 0;d:d 0;show y;
+		hh:h x;d:h[x][y][;1];k:h[x][y][;0]; k:k 0;d:d 0;show y;
+		
+    fl:$[1<count k;first k where d<first each (raze hh[k])[;1];$[0=count wd:where d<enlist(raze hh[k])1;-1;wd 0]];
     / Check for = 3 here also for fl = null here
-    $[0N<>fl;(h x):@[h x;fl;:;enlist((@[raze hh[fl][;0];0;:;fl]);(@[raze hh[fl][;1];0;:;d[0]]))];]}
+    /$[0N<>fl & 0<count fl;(h x):@[h x;fl;:;enlist((@[raze hh[fl][;0];0;:;fl]);(@[raze hh[fl][;1];0;:;d[0]]))];]
+		rukug;
+    $[0<fl;(h x):@[h x;fl;:;enlist((@[raze hh[fl][;0];0;:;fl]);(@[raze hh[fl][;1];0;:;d[0]]))];[(h x):@[h x;y;:;enlist (raze h[x][y]),'c,sum(f0[c]-f0[y])xexp 2]]];
+		(h x):@[h x;y;:;enlist((raze h[x])[y][0] iasc (raze h[x])[y][1];asc(raze h[x])[y][1])]}
+    /$[0<fl;(h x):@[h x;fl;:;enlist((@[raze hh[fl][;0];0;:;fl]);(@[raze hh[fl][;1];0;:;d[0]]))];show "todo this case"]}
 
 ip:{$[1=count h x;
 		[show "1=count h x";
@@ -28,10 +33,13 @@ ip:{$[1=count h x;
 		[show "1<count h x";
      /s:sum each (f0[c]-/:f0 key h x)xexp 2;i:iasc s;s:asc s;$[6<count s;[s:s til 6;i:i til 6];];$[0=count s;[show "2.s is 0";show s];];
 		/ Need to work this logic out - add on the basis of entry points
-     s:sum each (f0[c]-/:f0 key h x)xexp 2;i:iasc s;s:asc s;$[6<count s;[s:s til 6;i:i til 6];];$[0=count s;[show "2.s is 0";show s];];
-         (h x):@[h x;c;:;enlist (((key h x)i);s)];
+		/rc:count r:(raze over  (h x).k.ep);rc:count r:r til rc div 2;r:$[1<rc;r;r 0];nn:where r=(raze value h x)[;0];$[1=count nn;nn:nn 0;];
+		rc:count r:(raze over  (h x).k.ep);rc:count r:r til rc div 2;r:$[1<rc;r;r 0];.k.ep:r;show".k.ep:";show .k.ep;
+    $[1<rc;[s:sum each (f0[c]-/:f0 r)xexp 2;i:iasc s;s:asc s];[s:sum (f0[c]-f0 r)xexp 2;i:0]];$[6<count s;[s:s til 6;i:i til 6];];$[0=count s;[show "2.s is 0";show s];];
+		rukp2;
+         (h x):@[h x;c;:;enlist ($[1<rc;r i;r];s)];
 					/ Update graph here
-					ug[x];
+					ug[x;r];
 		]]}
 
 p2:{
@@ -39,6 +47,8 @@ p2:{
   }
 
 gb:{
+	show "l:";
+	show l;
   p1 each reverse (l+1) _til m+1;
 	show "main loop";
   p2 each reverse til l+1;
