@@ -26,7 +26,7 @@ ip:{$[1=count h x;
 			(h x):@[h x;(key h x)0;:;enlist(c;sum (f0[c]-f0[0])xexp 2)];
 			(h x):@[h x;c;:;enlist((key h x)0;sum (f0[c]-f0[0])xexp 2)];]; 
 		[show "1<count h x";
-     s:asc sum each (f0[c]-/:f0 key h x)xexp 2;i:iasc s;$[3<count s;[s:s til 3;i:i til 3];];$[0=count s;[show "2.s is 0";show s];];
+     s:sum each (f0[c]-/:f0 key h x)xexp 2;i:iasc s;s:asc s;$[6<count s;[s:s til 6;i:i til 6];];$[0=count s;[show "2.s is 0";show s];];
          /(h x):@[h x;c;$[(|/)(0N=(h x)c)0;:;,];enlist (((key h x)i);s)];
          (h x):@[h x;c;:;enlist (((key h x)i);s)];
 					/ Update graph here
