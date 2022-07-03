@@ -1,4 +1,4 @@
-/ worker function to split files and return samples
+/ Worker function to split files and return samples
 wk:{[v]
   t:{
 		show x;
