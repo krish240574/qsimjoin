@@ -23,5 +23,5 @@ ms:{
  /show .k.cc;
  .k.kmt:{x (`.k.km;.k.cc)}peach .k.cl;}.k.nw 
 
-/ q){(sum each .k.kmt[x;0;1+til 128])%sum .k.kmt[x;0;0]}each til count .k.cc
+{(sum each .k.kmt[x;0;1+til 128])%sum .k.kmt[x;0;0]}each til .k.nw
 
