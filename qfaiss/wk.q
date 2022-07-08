@@ -19,7 +19,8 @@ wk:{[v]
   tmp:raze mm@'wmm:first each where each (max each mm)=mm; tmp:(wmm where(max tmp)=tmp)0;:(tmp;max mm@'wmm;.k.f tmp)]]};
  t[v];
  neg[.z.w] (`mcb;(.k.f:asc .k.f) (til v`nw)*(count .k.f) div v`nw);
- .k.km:{show "KMEANS";.k.ed:();.Q.gc[];.k.ed:.k.edf[.k.f;x];((((count .k.ed 0),1)#count each agw),'sum each {.k.f x}each agw:gw asc key gw:group first each where each (min each .k.ed)=.k.ed)};}
+ .k.km:{show "KMEANS";.k.ed:();.Q.gc[];.k.ed:.k.edf[.k.f;x];
+  ((((count .k.ed 0),1)#count each agw),'sum each {.k.f x}each agw:gw asc key gw:group first each where each (min each .k.ed)=.k.ed)};}
 
 shf:{[p]
  .k.p:p; INF:-1+2 xexp 32; .k.p[0]:neg[INF]; .k.p,:INF;
